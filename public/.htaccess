@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Rewrite known subdomains to /subdomains/{subdomain}/
+RewriteCond %{HTTP_HOST} ^([^/.]+)\.localhost$
+RewriteCond %{REQUEST_URI} !^/subdomains [NC]
+RewriteCond %{REQUEST_URI} !^/404 [NC]
+RewriteRule ^(.+)$ /subdomains/%1/ [L]
+
+# Rewrite missing unknown subdomains to /404/
+RewriteCond %{HTTP_HOST} ^([^/.]+)\.localhost$
+RewriteCond %{REQUEST_URI} ^/subdomains [NC]
+RewriteCond %{REQUEST_URI} !^/404 [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.+)$ /404/ [L]

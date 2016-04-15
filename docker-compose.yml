@@ -1,0 +1,6 @@
+web:
+  build: docker/php-apache/
+  volumes:
+    - ./public:/var/www/html
+  ports:
+    - 80:80
