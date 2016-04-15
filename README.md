@@ -13,5 +13,5 @@
     
 ## Open
 
-http://foo.localhost/ -> shows "404" from /404/index.html
-http://bar.localhost/ -> shows "bar" from /subdomains/bar/index.html
+1. http://foo.localhost/ -> shows "404" from /404/index.html
+2. http://bar.localhost/ -> shows "bar" from /subdomains/bar/index.html
